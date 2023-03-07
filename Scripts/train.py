@@ -28,22 +28,22 @@ e = 0.01
 
 
 
-w = np.array([])
 
-
-w = (np.random.randn(1,7) *  e)
-
-b1 = np.random.rand(1,1) * e
-b2 = np.random.rand(1,1) * e
-b3 = np.random.rand(1,1) * e
-b4 = np.random.rand(1,1) * e
-b5 = np.random.rand(1,1) * e
-b6 = np.random.rand(1,1) * e
-b7 = np.random.rand(1,1) * e
 
 hidden1_size = 8
 hidden2_size = 6
 hidden3_size = 4
+
+w1 = np.random.randn(1,hidden1_size) * e
+w2 = np.random.randn(1,hidden2_size) * e
+w3 = np.random.randn(1,hidden3_size) * e
+
+b1 = np.random.randn(1,hidden1_size) * e
+b2 = np.random.randn(1,hidden2_size) * e
+b3 = np.random.randn(1,hidden3_size) * e
+
+
+
 
 
 
@@ -56,41 +56,32 @@ def leaky_relu(z):
     return max((0.01* z),z)
 
 
+def softmax(Z):
+    s = np.exp(Z)
+    s = s/np.sum(np.exp(Z))
+    
 
+def forward_propagation(X):
+    Z1 = np.dot(X,w1) + b1
+    A1 = leaky_relu(Z1)
+    
+    Z2 = np.dot(A1,w2) + b2
+    A2 = leaky_relu(Z2)
+    
+    Z3 = np.dot(A2,w3) + b3
+    A3 = leaky_relu(Z3)
+   
 
-def forward_propagation(X,z,w,b):
+    
+
     
     
-
-
-
-def softmax(a,k):
-    #a is a vector
-    #k = 3
-    softmax = 
-
+    
 # def compute_cost(X,Y,yhat):
 #     m = X.shape[0]
 #     cost (Y - yhat) ** 2
 #     cost = cost / m
 #     return cost
 
-# def compute_gradient_descent(X,Y,yhat,w,b,a = 0.0001,iterations = 1000,e = 0.1):
-  
-    
-#     m = X.shape[1]
-    
-#     cost = compute_cost(X,Y,yhat)
-    
-#     while(cost < e):
-#         dj_dw = (Y - yhat) ** 2
-#         dj_dw = dj_dw / (m * 2)
-    
-#         dj_db = np.sum(X)
-#         dj_db = dj_db / m
-    
-#         w = w - a * dj_dw
-#         b = b - a * dj_db
-    
-#     return w,b
+#def backpropagation():
 
