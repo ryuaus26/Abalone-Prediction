@@ -43,6 +43,8 @@ b7 = np.random.rand(1,1) * e
 
 hidden1_size = 8
 hidden2_size = 6
+hidden3_size = 4
+
 
 
 def activation_z(X,w,b):
@@ -57,6 +59,7 @@ def leaky_relu(z):
 
 
 def forward_propagation(X,z,w,b):
+    
     
 
 
