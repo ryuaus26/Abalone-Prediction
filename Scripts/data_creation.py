@@ -8,14 +8,14 @@ import numpy as np
 index = 1
 
 
-# Y_train = np.array([])
+Y_train = np.array([])
     
-# with open("./Data/Y.csv",'r') as csv_file:
-#     csv_reader = csv.reader(csv_file)
-#     for value in csv_reader:
-#         index = index + 1
-#         if(index <= 3341):
-#             Y_train = np.append(Y_train, value)
+with open("./Data/Y.csv",'r') as csv_file:
+    csv_reader = csv.reader(csv_file)
+    for value in csv_reader:
+        index = index + 1
+        if(index <= 3341):
+            Y_train = np.append(Y_train, value)
             
         
 # Y_val = np.array([])
